@@ -2,19 +2,71 @@
 //
 
 #include <iostream>
+#include <d3dx9math.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //D3DXVECTOR3 v1(0.0f, 3.0f, 0.0f);
+    //D3DXVECTOR3 v2(3.0f, 0.0f, 0.0f);
+    //D3DXVECTOR3 v3;
+    //D3DXVECTOR3 v4(3.0f, 3.0f, 0.0f);
+    //float fLength;
+
+    //// 벡터의 합 
+    //v3 = v1 + v2;
+    //printf("합 : %f %f %f \n", v3.x, v3.y, v3.z);
+    //
+    //D3DXVec3Add(&v3, &v1, &v2);
+    //printf("합 : %f %f %f \n", v3.x, v3.y, v3.z);
+
+    //// 벡터의 뺄셈
+    //v3 = v1 - v2;
+    //printf("뺄셈 : %f %f %f \n", v3.x, v3.y, v3.z); 
+
+    //D3DXVec3Subtract(&v3, &v1, &v2);
+    //printf("뺄셈 : %f %f %f \n", v3.x, v3.y, v3.z);
+
+    //// 벡터의 크기
+    //fLength = D3DXVec3Length(&v4);
+    //printf("크기 : %f \n", fLength); 
+
+    //// 벡터의 크기 변환
+    //float fScale = 2.0f;
+    //D3DXVECTOR3 v5(2.0f, 1.0f, 0.0f);
+
+    //D3DXVec3Scale(&v5, &v5, fScale);
+    //printf("값과 벡터의 곱 : %f %f %f \n", v5.x, v5.y, v5.z);
+
+    //// 벡터의 단위벡터
+    //D3DXVECTOR3 v6(2.0f, 2.0f, 3.0f);
+    //D3DXVECTOR3 vResult;
+    //float fNormalize;
+
+    //D3DXVec3Normalize(&vResult, &v6);
+    //printf("단위벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
+    //fNormalize = D3DXVec3Length(&vResult);
+    //printf("크기 : %f \n", fNormalize);
+
+
+    // 내적을 이용하여 벡터간 사이각을 알아내기
+    D3DXVECTOR3 v7(3.0f, 0.0f, 0.0f);
+    D3DXVECTOR3 v8(-3.0f, 0.0f, 0.0f);
+    float fCos, fDot, fScale;
+
+    fDot = D3DXVec3Dot(&v7, &v8);
+    fScale = D3DXVec3Length(&v7) * D3DXVec3Length(&v8);
+    fCos = fDot / fScale;
+    printf("라디안 : %f \n", fCos);
+
+
+    // 외적을 이용하여 수직 법선 방향벡터 구하기
+    D3DXVECTOR3 v9(3.0f, 0.0f, 0.0f);
+    D3DXVECTOR3 v10(0.0f, 3.0f, 0.0f);
+    D3DXVECTOR3 vResult;
+
+    D3DXVec3Cross(&vResult, &v9, &v10);
+    D3DXVec3Normalize(&vResult, &vResult);
+    printf("수직 법선 방향벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
+
+    return 0;
 }
-
-// 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
-// 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
-
-// 시작을 위한 팁: 
-//   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
-//   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
-//   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
-//   4. [오류 목록] 창을 사용하여 오류를 봅니다.
-//   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
-//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.
