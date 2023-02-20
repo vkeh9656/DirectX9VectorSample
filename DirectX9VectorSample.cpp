@@ -48,25 +48,53 @@ int main()
     //printf("크기 : %f \n", fNormalize);
 
 
-    // 내적을 이용하여 벡터간 사이각을 알아내기
-    D3DXVECTOR3 v7(3.0f, 0.0f, 0.0f);
-    D3DXVECTOR3 v8(-3.0f, 0.0f, 0.0f);
-    float fCos, fDot, fScale;
+    //// 내적을 이용하여 벡터간 사이각을 알아내기
+    //D3DXVECTOR3 v7(3.0f, 0.0f, 0.0f);
+    //D3DXVECTOR3 v8(-3.0f, 0.0f, 0.0f);
+    //float fCos, fDot, fScale;
 
-    fDot = D3DXVec3Dot(&v7, &v8);
-    fScale = D3DXVec3Length(&v7) * D3DXVec3Length(&v8);
-    fCos = fDot / fScale;
-    printf("라디안 : %f \n", fCos);
+    //fDot = D3DXVec3Dot(&v7, &v8);
+    //fScale = D3DXVec3Length(&v7) * D3DXVec3Length(&v8);
+    //fCos = fDot / fScale;
+    //printf("라디안 : %f \n", fCos);
 
 
-    // 외적을 이용하여 수직 법선 방향벡터 구하기
-    D3DXVECTOR3 v9(3.0f, 0.0f, 0.0f);
-    D3DXVECTOR3 v10(0.0f, 3.0f, 0.0f);
-    D3DXVECTOR3 vResult;
+    //// 외적을 이용하여 수직 법선 방향벡터 구하기
+    //D3DXVECTOR3 v9(3.0f, 0.0f, 0.0f);
+    //D3DXVECTOR3 v10(0.0f, 3.0f, 0.0f);
+    //D3DXVECTOR3 vResult;
 
-    D3DXVec3Cross(&vResult, &v9, &v10);
-    D3DXVec3Normalize(&vResult, &vResult);
-    printf("수직 법선 방향벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
+    //D3DXVec3Cross(&vResult, &v9, &v10);
+    //D3DXVec3Normalize(&vResult, &vResult);
+    //printf("수직 법선 방향벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
+
+
+    // Matrix 초기화
+    D3DXMATRIX matIdentity, matMatrix, matResult;
+    D3DXMatrixIdentity(&matIdentity);
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            matMatrix(i, j) = float(i * 4 + j + 1);
+        }
+    }
+
+    // A*E(단위행렬) = A
+    
+    D3DXMatrixMultiply(&matResult, &matMatrix, &matIdentity);
+    //matResult = matMatrix * matIdentity;
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            printf("%7.1f", matResult.m[i][j]);
+        }
+
+        printf("\n");
+    }
 
     return 0;
 }
