@@ -69,28 +69,179 @@ int main()
     //printf("수직 법선 방향벡터 : %f %f %f \n", vResult.x, vResult.y, vResult.z);
 
 
-    // Matrix 초기화
-    D3DXMATRIX matIdentity, matMatrix, matResult;
-    D3DXMatrixIdentity(&matIdentity);
+    //// Matrix 초기화
+    //D3DXMATRIX matIdentity, matMatrix, matResult;
+    //D3DXMatrixIdentity(&matIdentity);
 
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            matMatrix(i, j) = float(i * 4 + j + 1);
-        }
-    }
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        matMatrix(i, j) = float(i * 4 + j + 1);
+    //    }
+    //}
 
-    // A*E(단위행렬) = A
+    //// A*E(단위행렬) = A
+    //
+    //D3DXMatrixMultiply(&matResult, &matMatrix, &matIdentity);
+    //
+    //// 아래 코드는 위랑 결과 같음.
+    ////matResult = matMatrix * matIdentity;
+
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matResult.m[i][j]);
+    //    }
+
+    //    printf("\n");
+    //}
+
+
+    //// 전치행렬
+    //D3DXMATRIX matMatrix, matResult;
+
+    //printf("전치행렬 이전\n");
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        matMatrix(i, j) = float(i * 4 + j + 1);
+    //    }
+    //}
+    //
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i,j));
+    //    }
+    //    printf("\n");
+    //}
+
+    //printf("---------------------------------\n");
+    //printf("전치행렬 이후\n");
+    //D3DXMatrixTranspose(&matResult, &matMatrix);
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matResult(i,j));
+    //    }
+
+    //    printf("\n");
+    //}
+
     
-    D3DXMatrixMultiply(&matResult, &matMatrix, &matIdentity);
-    //matResult = matMatrix * matIdentity;
+    
+    //// 역행렬
+    //D3DXMATRIX matMatrix, matResult;
+    //D3DXMatrixRotationX(&matMatrix, 0.3f);      // x축을 기준으로 회전하는 행렬
+    //
+    //printf("----------------------회전 행렬----------------------\n");
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i, j));
+    //    }
+    //    printf("\n");
+    //}
+    //
+    //printf("----------------------역행렬----------------------\n");
+    //D3DXMatrixInverse(&matResult, NULL, &matMatrix);
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matResult(i, j));
+    //    }
+    //    printf("\n");
+    //}
+    //
+    //printf("----------------------다시 역행렬----------------------\n");
+    //D3DXMatrixInverse(&matResult, NULL, &matMatrix);
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matResult(i, j));
+    //    }
+    //    printf("\n");
+    //}
 
+
+
+
+    //// 이동행렬
+    //D3DXMATRIX matMatrix;
+    //printf("----------------------이동 행렬----------------------\n");
+    //D3DXMatrixTranslation(&matMatrix, 0.5f, 0.5f, 0.5f);
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i, j));
+    //    }
+
+    //    printf("\n");
+    //}
+
+
+
+    //// 크기행렬
+    //D3DXMATRIX matMatrix;
+    //printf("----------------------크기 행렬----------------------\n");
+    //D3DXMatrixScaling(&matMatrix, 0.5f, 0.5f, 0.5f);
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i, j));
+    //    }
+
+    //    printf("\n");
+    //}
+
+    //// X축 회전 행렬
+    //D3DXMATRIX matMatrix;
+    //printf("----------------------X축 회전 행렬----------------------\n");
+    //D3DXMatrixRotationX(&matMatrix, D3DXToRadian(30));  // 30도 만큼을 Radian 값으로 치환해서 회전
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i, j));
+    //    }
+
+    //    printf("\n");
+    //}
+
+
+    //// Y축 회전 행렬
+    //D3DXMATRIX matMatrix;
+    //printf("----------------------Y축 회전 행렬----------------------\n");
+    //D3DXMatrixRotationY(&matMatrix, D3DXToRadian(30));  // 30도 만큼을 Radian 값으로 치환해서 회전
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i, j));
+    //    }
+
+    //    printf("\n");
+    //}
+
+    // Z축 회전 행렬
+    D3DXMATRIX matMatrix;
+    printf("----------------------Y축 회전 행렬----------------------\n");
+    D3DXMatrixRotationZ(&matMatrix, D3DXToRadian(30));  // 30도 만큼을 Radian 값으로 치환해서 회전
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
         {
-            printf("%7.1f", matResult.m[i][j]);
+            printf("%7.1f", matMatrix(i, j));
         }
 
         printf("\n");
