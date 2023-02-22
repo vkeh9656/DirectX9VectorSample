@@ -233,19 +233,19 @@ int main()
     //    printf("\n");
     //}
 
-    // Z축 회전 행렬
-    D3DXMATRIX matMatrix;
-    printf("----------------------Y축 회전 행렬----------------------\n");
-    D3DXMatrixRotationZ(&matMatrix, D3DXToRadian(30));  // 30도 만큼을 Radian 값으로 치환해서 회전
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            printf("%7.1f", matMatrix(i, j));
-        }
+    //// Z축 회전 행렬
+    //D3DXMATRIX matMatrix;
+    //printf("----------------------Z축 회전 행렬----------------------\n");
+    //D3DXMatrixRotationZ(&matMatrix, D3DXToRadian(30));  // 30도 만큼을 Radian 값으로 치환해서 회전
+    //for (int i = 0; i < 4; i++)
+    //{
+    //    for (int j = 0; j < 4; j++)
+    //    {
+    //        printf("%7.1f", matMatrix(i, j));
+    //    }
 
-        printf("\n");
-    }
+    //    printf("\n");
+    //}
 
     return 0;
 }
